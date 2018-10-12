@@ -1,19 +1,25 @@
+package mealtracker;
+
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class MealTracker {
-    private final ArrayList<Meal> meals = new ArrayList<>();
-    private final User thisUser;
+    private final List<Meal> meals = new ArrayList<>();
+    private final User user;
 
     MealTracker (User user){
 
-        this.thisUser = user;
+        this.user = user;
     }
 
     boolean onTrack() {
 
-        return this.getAdherence() >= this.thisUser.getTargetAdherence();
+        return this.getAdherence() >= this.user.getTargetAdherence();
     }
 
     double getAdherence() {
-        int count = 0 ;
+        int count = 0;
 
         for (Meal meal : this.meals) {
             if (meal.isComplete()){
